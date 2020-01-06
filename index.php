@@ -18,17 +18,16 @@ if (isset($_POST['data'])) {
          MEFOMARKET          
  JL. PERINTIS KEMERDEKAAN NO.9
    TELP. 0282-544248-CILACAP
-______________________________
 ';
 
     if ($jenis == 'kredit') {
 
         $text .= '
-NOTA KREDIT '. aturString($tanggal, 20, true);
+NOTA KREDIT '. aturString($tanggal, 18, true);
 
     } else {
         $text .= '
-NOTA TUNAI  '. aturString($tanggal, 20, true);
+NOTA TUNAI  '. aturString($tanggal, 18, true);
     
     }
 
@@ -72,9 +71,9 @@ KEMBALI  : Rp. '. aturString(number_format($kembali), 15, true) .'
 
 
 
-         ['. strtoupper(aturString($anggota['nama']), 10) .']
- Sisa Plafon : Rp. '. aturString(number_format($data['sisa_plafon']), 10, true);
-    
+    ['. aturString($anggota['nama'], 20) .']
+Sisa Plafon   Rp. '. aturString(number_format($anggota['sisa'] - $data['total']), 12, true) .'
+Belnaja Total Rp. '. aturString(number_format($anggota['belanja'] + $data['total']), 12, true);
     }
     
     $text .= '
@@ -83,9 +82,8 @@ TERIMAKSIH ATAS KEHADIRAN ANDA
         DI MEFOMARKET
 ';
 
-
     /* tulis dan buka koneksi ke printer */    
-    $printer = printer_open("\\OFFICE2-PC\Canon iP2700 series");  
+    $printer = printer_open("EPSON TM-U220 Receipt");  
     /* write the text to the print job */  
     printer_write($printer, $text);   
     /* close the connection */ 
