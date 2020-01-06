@@ -33,7 +33,7 @@ NOTA TUNAI  '. aturString($tanggal, 18, true);
 
     $text .= '
 ______________________________
-NO. '. aturString($struk, 14) .'  '. aturString($kasir, 10, true);
+NO. '. aturString($struk, 14) .'  '. aturString(trim($kasir), 10, true);
 
     if ($anggota !== false) {
         
@@ -44,12 +44,14 @@ ID. '. aturString($anggota['id_anggota'], 15) .' '. strtoupper(aturString($anggo
 
     $text .= '
 ..............................
-BARANG       QTY @     S.TOTAL';
+BARANG       QTY @     S.TOTAL
+==============================';
 
     foreach ($items as $key => $value) {
         
     $text .= '
-'. aturString( $value['nama'], 12) .' '. aturString($value['jumlah'], 3, true) .' '. number_format($value['harga']) .' '. number_format($value['total']);
+'. aturString( $value['nama'], 30) .'
+'. aturString($value['jumlah'], 4) .' @'. aturString(number_format($value['harga']), 10).'   '. aturString(number_format($value['total']), 11, true);
     
     }
 
@@ -71,7 +73,7 @@ KEMBALI  : Rp. '. aturString(number_format($kembali), 15, true) .'
 
 
 
-    ['. aturString($anggota['nama'], 20) .']
+    ['. aturString($anggota['nama'], 20, false, '.') .']
 Sisa Plafon   Rp. '. aturString(number_format($anggota['sisa'] - $data['total']), 12, true) .'
 Belnaja Total Rp. '. aturString(number_format($anggota['belanja'] + $data['total']), 12, true);
     }
@@ -83,11 +85,13 @@ TERIMAKSIH ATAS KEHADIRAN ANDA
 ';
 
     /* tulis dan buka koneksi ke printer */    
-    $printer = printer_open("EPSON TM-U220 Receipt");  
+    // $printer = printer_open("EPSON TM-U220 Receipt");  
     /* write the text to the print job */  
-    printer_write($printer, $text);   
+    // printer_write($printer, $text);   
     /* close the connection */ 
-    printer_close($printer);
+    // printer_close($printer);
+
+    echo $text;
 
 } else {
     
@@ -99,12 +103,12 @@ TERIMAKSIH ATAS KEHADIRAN ANDA
 Fungsi bantuan
 */
 
-function aturString($string, $maxlength = 10, $posisi = false) {
+function aturString($string, $maxlength = 10, $posisi = false, $replace = ' ') {
     // $posisi = false untuk ubah sisanya jadi whitespace ke kanan
     // $posisi = true untuk ubah sisanya jadi whitespace ke kiri
     if (strlen($string) < $maxlength) {
         
-        $a = str_repeat(' ', $maxlength - strlen($string));
+        $a = str_repeat($replace, $maxlength - strlen($string));
         $c = $string;
 
         if ($posisi === false) {
