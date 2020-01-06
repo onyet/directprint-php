@@ -44,7 +44,7 @@ ID. '. aturString($anggota['id_anggota'], 15) .' '. strtoupper(aturString($anggo
 
     $text .= '
 ..............................
-BARANG       QTY @     S.TOTAL
+BARANG       QTY @    SUBTOTAL
 ==============================';
 
     foreach ($items as $key => $value) {
