@@ -84,11 +84,8 @@ TERIMAKSIH ATAS KEHADIRAN ANDA
         DI MEFOMARKET
 ';
 
-    /* tulis dan buka koneksi ke printer */    
-    $printer = printer_open("EPSON TM-U220 Receipt");  
-    /* write the text to the print job */  
+    $printer = printer_open("EPSON TM-U220 Receipt"); 
     printer_write($printer, $text);   
-    /* close the connection */ 
     printer_close($printer);
 
 } else {
