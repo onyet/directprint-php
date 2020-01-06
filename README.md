@@ -3,7 +3,7 @@ Direct printer Receipt from Php
 
 # System requirement
 - PHP 5.6.3x - X32/X86
-- Extension php_printer (Windows : php_printer.dll, Linux: pgp_printer.so)
+- Extension php_printer (Windows : php_printer.dll, Linux: php_printer.so)
 - Apache / Nginx
 
 # Resources
