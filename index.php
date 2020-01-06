@@ -85,13 +85,11 @@ TERIMAKSIH ATAS KEHADIRAN ANDA
 ';
 
     /* tulis dan buka koneksi ke printer */    
-    // $printer = printer_open("EPSON TM-U220 Receipt");  
+    $printer = printer_open("EPSON TM-U220 Receipt");  
     /* write the text to the print job */  
-    // printer_write($printer, $text);   
+    printer_write($printer, $text);   
     /* close the connection */ 
-    // printer_close($printer);
-
-    echo $text;
+    printer_close($printer);
 
 } else {
     
