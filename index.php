@@ -58,7 +58,14 @@ BARANG       QTY @    SUBTOTAL
     $text .= '
 ------------------------------
 S.TOTAL  : Rp. '. aturString(number_format($data['stotal']), 15, true) .'
-POTONGAN : Rp. '. aturString(number_format($data['potongan']), 15, true) .'
+POTONGAN : Rp. '. aturString(number_format($data['potongan']), 15, true);
+
+    if ($voucher) {
+        $text .= '
+VOUCHER  : Rp. '. aturString(number_format($voucher['potongan']), 15, true);
+    }
+
+    $text .= '
           ____________________
 TOTAL    : Rp. '. aturString(number_format($data['total']), 15, true) .'
 BAYAR    : Rp. '. aturString(number_format($bayar), 15, true) .'
