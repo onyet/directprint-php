@@ -82,7 +82,7 @@ KEMBALI  : Rp. '. aturString(number_format($kembali), 15, true) .'
 
     ['. aturString($anggota['nama'], 20, false, '.') .']
 Sisa Plafon   Rp. '. aturString(number_format($anggota['sisa'] - $data['total']), 12, true) .'
-Belnaja Total Rp. '. aturString(number_format($anggota['belanja'] + $data['total']), 12, true);
+Belanja Total Rp. '. aturString(number_format($anggota['belanja'] + $data['total']), 12, true);
     }
     
     $text .= '
