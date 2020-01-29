@@ -57,20 +57,20 @@ BARANG       QTY @    SUBTOTAL
 
     $text .= '
 ------------------------------
-S.TOTAL  : Rp. '. aturString(number_format($data['stotal']), 15, true) .'
-POTONGAN : Rp. '. aturString(number_format($data['potongan']), 15, true);
+S.TOTAL  : Rp '. aturString(number_format($data['stotal']), 16, true) .'
+POTONGAN : Rp '. aturString(number_format($data['potongan']), 16, true);
 
     if ($voucher) {
         $text .= '
-VOUCHER  : Rp. '. aturString(number_format($voucher['potongan']), 15, true);
+VOUCHER  : Rp '. aturString(number_format($voucher['potongan']), 16, true);
     }
 
     $text .= '
           ____________________
-TOTAL    : Rp. '. aturString(number_format($data['total']), 15, true) .'
-BAYAR    : Rp. '. aturString(number_format($bayar), 15, true) .'
+TOTAL    : Rp '. aturString(number_format($data['total']), 16, true) .'
+BAYAR    : Rp '. aturString(number_format($bayar), 16, true) .'
           ____________________
-KEMBALI  : Rp. '. aturString(number_format($kembali), 15, true) .'
+KEMBALI  : Rp '. aturString(number_format($kembali), 16, true) .'
 ------------------------------';
     
     if ($anggota !== false) {
@@ -81,8 +81,8 @@ KEMBALI  : Rp. '. aturString(number_format($kembali), 15, true) .'
 
 
     ['. aturString($anggota['nama'], 20, false, '.') .']
-Sisa Plafon   Rp. '. aturString(number_format($anggota['sisa'] - $data['total']), 12, true) .'
-Belanja Total Rp. '. aturString(number_format($anggota['belanja'] + $data['total']), 12, true);
+Sisa Plafon   Rp '. aturString(number_format($anggota['sisa'] - $data['total']), 13, true) .'
+Belanja Total Rp '. aturString(number_format($anggota['belanja'] + $data['total']), 13, true);
     }
     
     $text .= '
