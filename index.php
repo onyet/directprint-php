@@ -87,8 +87,9 @@ Belanja Total Rp '. aturString(number_format($anggota['belanja'] + $data['total'
     
     $text .= '
  Harga Sudah Termasuk PPn 10%
-TERIMAKSIH ATAS KEHADIRAN ANDA
+TERIMAKSIH ATAS KUNJUNGAN ANDA
         DI MEFOMARKET
+  SEMOGA ANDA PUAS BERBELANJA
 ';
 
     $printer = printer_open("EPSON TM-U220 Receipt"); 
